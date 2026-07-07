@@ -1,4 +1,4 @@
-import { Shield, Award, Globe, Users, Target, BadgeCheck, BookOpen, Cpu, FileBadge, Star } from 'lucide-react'
+import { Shield, Award, Users, Target, BadgeCheck, BookOpen, FileBadge, Star } from 'lucide-react'
 import FadeIn from '../components/FadeIn'
 
 const team = [

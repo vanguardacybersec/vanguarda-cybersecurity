@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Shield, Eye, FileSearch, Target, Users, BarChart3, CheckCircle, ChevronRight } from 'lucide-react'
+import { ArrowRight, Shield, Eye, FileSearch, Target, Users, BarChart3, CheckCircle } from 'lucide-react'
 import FadeIn from '../components/FadeIn'
 import ServiceCard from '../components/ServiceCard'
 import Section, { SectionHeader } from '../components/Section'

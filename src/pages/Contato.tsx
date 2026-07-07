@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react'
+import { useState, type FormEvent } from 'react'
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
 import FadeIn from '../components/FadeIn'
 

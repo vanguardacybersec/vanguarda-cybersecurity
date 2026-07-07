@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, createElement, ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 
 interface FadeInProps {
   children: ReactNode
@@ -6,7 +6,6 @@ interface FadeInProps {
   delay?: number
   direction?: 'up' | 'left' | 'right' | 'none'
   duration?: number
-  as?: keyof JSX.IntrinsicElements
 }
 
 export default function FadeIn({
@@ -15,7 +14,6 @@ export default function FadeIn({
   delay = 0,
   direction = 'up',
   duration = 600,
-  as = 'div',
 }: FadeInProps) {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -34,25 +32,24 @@ export default function FadeIn({
     return () => observer.disconnect()
   }, [delay])
 
-  const getTransform = () => {
-    if (!isVisible) {
-      switch (direction) {
-        case 'up': return 'translateY(30px)'
-        case 'left': return 'translateX(-30px)'
-        case 'right': return 'translateX(30px)'
-        default: return 'none'
-      }
-    }
-    return 'none'
-  }
+  const transform = !isVisible
+    ? direction === 'up' ? 'translateY(30px)'
+      : direction === 'left' ? 'translateX(-30px)'
+      : direction === 'right' ? 'translateX(30px)'
+      : 'none'
+    : 'none'
 
-  return createElement(as, {
-    ref,
-    className,
-    style: {
-      opacity: isVisible ? 1 : 0,
-      transform: getTransform(),
-      transition: `opacity ${duration}ms ease-out, transform ${duration}ms ease-out`,
-    },
-  }, children)
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform,
+        transition: `opacity ${duration}ms ease-out, transform ${duration}ms ease-out`,
+      }}
+    >
+      {children}
+    </div>
+  )
 }

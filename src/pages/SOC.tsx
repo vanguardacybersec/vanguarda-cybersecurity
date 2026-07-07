@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Eye, Bell, Activity, AlertTriangle, Clock, Shield, CheckCircle, Search, Users, Zap } from 'lucide-react'
+import { ArrowRight, Eye, Bell, Activity, Shield, CheckCircle, Users, Zap } from 'lucide-react'
 import FadeIn from '../components/FadeIn'
 import Section, { SectionHeader } from '../components/Section'
 
